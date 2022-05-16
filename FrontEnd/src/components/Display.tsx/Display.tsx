@@ -4,8 +4,8 @@ function Display(props: { operation: string; result: string }) {
     const { operation, result } = props;
     return (
         <div className='display'>
-            <div>{operation}</div>
-            <div>{result}</div>
+            <div className='operation'><span>{operation}</span></div>
+            <div className='result'>{result}</div>
         </div>
     )
 }
