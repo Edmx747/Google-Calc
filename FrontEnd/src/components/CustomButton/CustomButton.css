@@ -1,0 +1,31 @@
+#btn{
+    border: none;
+    width: 100%;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+.btn-primary{
+    background: #5f6368;
+    color: #e8eaed;
+    border: 1px solid #5f6368;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.btn-secondary{
+    background: #3c4043;
+    color: #e8eaed;
+    border: 1px solid #3c4043;
+    border-radius: 4px;
+}
+.btn-tertiary{
+    background: #8ab4f8;
+    color: #202124;
+    border: 1px solid #8ab4f8;
+    border-radius: 4px;
+}

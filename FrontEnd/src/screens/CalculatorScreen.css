@@ -1,0 +1,12 @@
+.calculator{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.buttons-table{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
