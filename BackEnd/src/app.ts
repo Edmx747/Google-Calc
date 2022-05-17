@@ -8,6 +8,7 @@ app.listen(port, () => {
   return console.log(`server is listening on ${port}`);
 });
 app.use(cors())
+app.use(express.json());
 app.use('/calculate', calculateRouter);
 
 export default app;
