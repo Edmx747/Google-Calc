@@ -3,42 +3,55 @@ import CustomButton from '../components/CustomButton/CustomButton'
 import Display from '../components/Display.tsx/Display'
 import { CALCULATOR_BUTTONS } from '../helpers/CalculatorButtons';
 import { CalculatorButtonType, ICalculatorButton } from '../models/CalculatorButtons';
+import HttpService from '../services/http';
 import './CalculatorScreen.css'
+
 function CalculatorScreen() {
     let [operation, setOperation] = useState('');
     let [result, setResult] = useState('');
     let [typed, setTyped] = useState<Array<ICalculatorButton>>([]);
 
+    const getResult = async (operation: string) => {
+        await HttpService.post('/calculate/', { data: operation })
+        .then((res: any) => {
+            setResult(res.result);
+        })
+    }
+
     const handleOperation = (button: ICalculatorButton): any => {
         const { value, type } = button;
+        // if the last button is an operator, replace it with the new operator 
         if (typed.length > 0 && typed[typed.length - 1].type === CalculatorButtonType.OPERATOR && type === CalculatorButtonType.OPERATOR) {
             setTyped([...typed.splice(typed.length - 1, 1)]);
         }
+
         setTyped([...typed.concat(button)]);
         setOperation(typed.map(button => button.value).join(''));
-        if (value === '=') {
-            if (result !== '') {
-                setResult(eval(result + operation));
+
+        switch (value) {
+            case '=':
+                // if result is not empty, calculate the result
+                if (result !== '') {
+                    getResult(result + operation)
+                    setOperation('');
+                    setTyped([]);
+                } else {
+                    getResult(operation)
+                    setOperation('')
+                    setTyped([]);
+                }
+                break;
+            case 'AC':
                 setOperation('');
+                setResult('');
                 setTyped([]);
-            } else {
-                setResult(eval(operation));
-                setOperation('')
-                setTyped([]);
-            }
-        } else if (value === 'AC') {
-            setOperation('');
-            setResult('');
-            setTyped([]);
-        } else {
-            setOperation(eval(typed.map(button => button.value).join('')));
+                break;
         }
     }
 
     useEffect(() => {
         setOperation(typed.map(button => button.value).join(''));
     }, [typed])
-    
 
     return (
         <div className='calculator'>
