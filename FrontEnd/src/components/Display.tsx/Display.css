@@ -6,9 +6,14 @@
     margin: auto;
     padding: 10px 14px 0 10px;
     box-sizing: border-box;
+    font-size: large;
 }
 .operation{
     height: 20px;
     color: #969ba1;
-    font-size: 13px;
+    font-size: 16px;
+}
+.result{
+    font-size: 18px;
+    font-weight: bold;
 }
