@@ -3,7 +3,8 @@ export interface ICalculatorButton {
     value: string;
     name?: string;
     className: string;
-    type: CalculatorButtonType
+    type: CalculatorButtonType;
+    disabled?: boolean;
 }
 export enum CalculatorButtonType {
     NUMBER = "number",

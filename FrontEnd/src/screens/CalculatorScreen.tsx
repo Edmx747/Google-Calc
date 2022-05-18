@@ -71,7 +71,7 @@ function CalculatorScreen() {
                                     {buttons.map((button: ICalculatorButton, index: number) => {
                                         return (
                                             <td key={index}>
-                                                <CustomButton value={button.name ? button.name : button.value} className={button.className} onClick={() => handleOperation(button)}></CustomButton>
+                                                <CustomButton value={button.name ? button.name : button.value} className={button.className} disabled={button.disabled} onClick={() => handleOperation(button)}></CustomButton>
                                             </td>
                                         )
                                     })}

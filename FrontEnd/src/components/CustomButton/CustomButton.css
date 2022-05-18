@@ -10,6 +10,10 @@
     cursor: pointer;
     transition-duration: 0.4s;
 }
+button:disabled{
+    background: #ccc;
+    color: white;
+}
 .btn-primary{
     background: #5f6368;
     color: #e8eaed;

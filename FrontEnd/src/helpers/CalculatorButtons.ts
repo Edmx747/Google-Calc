@@ -7,18 +7,21 @@ export const CALCULATOR_BUTTONS: Array<Array<ICalculatorButton>> = [
             value: "(",
             type: CalculatorButtonType.OPERATOR,
             className: "btn-primary",
+            disabled: true
         },
         {
             id: 1,
             value: ")",
             type: CalculatorButtonType.OPERATOR,
             className: "btn-primary",
+            disabled: true
         },
         {
             id: 2,
             value: "%",
             type: CalculatorButtonType.OPERATOR,
             className: "btn-primary",
+            disabled: true
         },
         {
             id: 3,
