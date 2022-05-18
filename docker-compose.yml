@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  gc-server:
+    build: ./backend
+    restart: always
+    command: npm run start
+    volumes:
+      - /app/node_modules
+      - ./backend:/app
+    ports:
+      - "3000:3000"
+  gc-client:
+    build: ./frontend
+    restart: always
+    command: npm start
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+    ports:
+      - "3001:3001"
